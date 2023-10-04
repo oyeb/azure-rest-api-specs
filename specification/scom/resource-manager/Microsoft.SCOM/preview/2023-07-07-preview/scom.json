@@ -1500,6 +1500,11 @@
           "items": {
             "$ref": "#/definitions/NexusResourcesProperties"
           }
+        },
+        "totalRecords": {
+          "description": "Total number of records present in Db to be used in pagination.",
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -1554,6 +1559,10 @@
         "domainName": {
           "description": "The domain name associated with the filtered resource.",
           "type": "string"
+        },
+        "onboardingStatus": {
+          "description": "The status of the resource onboarding process that is being installed.",
+          "$ref": "#/definitions/OnboardingStatusProperties"
         },
         "managementServerEndpoint": {
           "description": "The management server endpoint to which the filtered resource is directed.",
@@ -1613,6 +1622,28 @@
           "additionalProperties": {
             "type": "string"
           }
+        }
+      }
+    },
+    "OnboardingStatusProperties":{
+      "description": "The status and status message of the resource onboarding process that is being installed.",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "The status of the onboarding process.",
+          "type": "string",
+          "enum": [
+            "Failed",
+            "Succeeded"
+          ],
+          "x-ms-enum": {
+            "name": "status",
+            "modelAsString": true
+          }
+        },
+        "message": {
+          "description": "The onboarding message for the resource.",
+          "type": "string"
         }
       }
     },

@@ -52,6 +52,10 @@
               "resourceLocation": "eastus2",
               "computerName": "abcd",
               "domainName": "SCOMMI.com",
+              "onboardingStatus": {
+                "status": "Failed",
+                "message": "Extension Failed"
+              },
               "managementServerEndpoint": "Lbdns.com",
               "healthStatus": "Healthy",
               "connectionStatus": "Connected",
@@ -128,7 +132,8 @@
               "lastModifiedAt": "2018-04-24T16:30:55+00:00"
             }
           }
-        ]
+        ],
+        "totalRecords": 3
       }
     }
   }

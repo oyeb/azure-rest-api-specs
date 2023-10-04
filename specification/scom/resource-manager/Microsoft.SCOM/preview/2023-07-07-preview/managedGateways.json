@@ -279,17 +279,9 @@
           "description": "The domain name associated with the gateway to be monitored.",
           "type": "string"
         },
-        "extensionStatus": {
-          "description": "The status of the agent extension that is being installed.",
-          "type": "string",
-          "enum": [
-            "Failed",
-            "Succeeded"
-          ],
-          "x-ms-enum": {
-            "name": "extensionStatus",
-            "modelAsString": true
-          }
+        "onboardingStatus": {
+          "description": "The status of the gateway onboarding process that is being installed.",
+          "$ref": "#/definitions/OnboardingStatusProperties"
         },
         "managementServerEndpoint": {
           "description": "The management server endpoint to which the gateway is directed.",
@@ -361,6 +353,28 @@
         "provisioningState": {
           "type": "string",
           "readOnly": true
+        }
+      }
+    },
+    "OnboardingStatusProperties":{
+      "description": "The status and status message of the gateway onboarding process that is being installed.",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "The status of the onboarding process.",
+          "type": "string",
+          "enum": [
+            "Failed",
+            "Succeeded"
+          ],
+          "x-ms-enum": {
+            "name": "status",
+            "modelAsString": true
+          }
+        },
+        "message": {
+          "description": "The onboarding message for the gateway.",
+          "type": "string"
         }
       }
     },
