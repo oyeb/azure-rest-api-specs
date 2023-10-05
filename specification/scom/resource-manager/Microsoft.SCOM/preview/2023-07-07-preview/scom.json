@@ -1200,9 +1200,8 @@
           "type": "string"
         },
         "databaseFqdn": {
-          "description": "Fully qualified domain name of existing database instance",
-          "type": "string",
-          "readOnly": true
+          "description": "Fully qualified domain name of public endpoint of existing database instance.",
+          "type": "string"
         },
         "dwDatabaseName": {
           "description": "Name of warehouse database on database instance",

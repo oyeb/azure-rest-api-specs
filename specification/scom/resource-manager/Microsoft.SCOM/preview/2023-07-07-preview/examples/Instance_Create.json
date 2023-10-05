@@ -9,7 +9,8 @@
       "properties": {
         "vNetSubnetId": "/subscriptions/{subscription-id}/resourceGroups/mySCOMMIGroup/providers/Microsoft.Network/virtualNetworks/vNet2/subnets/default",
         "databaseInstance": {
-          "databaseInstanceId": "/subscriptions/{subscription-id}/resourceGroups/mySCOMMIGroup/providers/Microsoft.sql/managedInstances/inst1"
+          "databaseInstanceId": "/subscriptions/{subscription-id}/resourceGroups/mySCOMMIGroup/providers/Microsoft.sql/managedInstances/inst1",
+          "databaseFqdn": "inst1.public.99e6c0ec1d52.database.windows.net,3342"
         },
         "domainController": {
           "domainName": "domain.com",
