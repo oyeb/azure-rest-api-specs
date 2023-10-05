@@ -1093,6 +1093,11 @@
           "description": "Operation id",
           "type": "string",
           "readOnly": true
+        },
+        "OperationMessage": {
+          "description": "Operation message",
+          "type": "string",
+          "readOnly": true
         }
       }
     },
