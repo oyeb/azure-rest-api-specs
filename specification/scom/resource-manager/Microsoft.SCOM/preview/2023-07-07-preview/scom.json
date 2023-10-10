@@ -641,7 +641,7 @@
           "200": {
             "description": "OK. The gateway approval for onboarding has completed successfully.",
             "schema": {
-              "$ref": "#/definitions/onboardGatewayResponseProperties"
+              "$ref": "#/definitions/CommonResponseProperties"
             }
           },
           "202": {
@@ -707,7 +707,7 @@
           "200": {
             "description": "OK. The remove gateway approval for deleting has completed successfully.",
             "schema": {
-              "$ref": "#/definitions/onboardGatewayResponseProperties"
+              "$ref": "#/definitions/CommonResponseProperties"
             }
           },
           "202": {
@@ -736,6 +736,72 @@
         "x-ms-examples": {
           "Instances_Scale": {
             "$ref": "./examples/Gateway_Deboard.json"
+          }
+        }
+      }
+    },
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scom/managedInstances/{instanceName}/deboardMonitoredResource": {
+      "post": {
+        "operationId": "Deboard_MonitoredResource",
+        "description": "Api to remove monitored resource from management server.",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "$ref": "../../../../../common-types/resource-management/v5/types.json#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v5/types.json#/parameters/ResourceGroupNameParameter"
+          },
+          {
+            "$ref": "#/parameters/instanceName"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/MonitoredResourceDeboardingProperties"
+            }
+          },
+          {
+            "$ref": "../../../../../common-types/resource-management/v5/types.json#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK. The removal of monitored resource from management server before unregister has completed successfully.",
+            "schema": {
+              "$ref": "#/definitions/CommonResponseProperties"
+            }
+          },
+          "202": {
+            "description": "Accepted. The removal of monitored resource from management server before unregister will complete asyncronously.",
+            "headers": {
+              "Location": {
+                "type": "string"
+              },
+              "Azure-AsyncOperation": {
+                "type": "string",
+                "description": "The URL to retrieve the status of the asynchronous operation."
+              }
+            }
+          },
+          "default": {
+            "description": "An error response providing a description of the reason for the operation's failure.",
+            "schema": {
+              "$ref": "../../../../../common-types/resource-management/v5/types.json#/definitions/ErrorResponse"
+            }
+          }
+        },
+        "x-ms-long-running-operation": true,
+        "x-ms-long-running-operation-options": {
+          "final-state-via": "location"
+        },
+        "x-ms-examples": {
+          "Instances_Scale": {
+            "$ref": "./examples/MonitoredResource_Deboard.json"
           }
         }
       }
@@ -1693,7 +1759,7 @@
         }
       }
     },
-    "onboardGatewayResponseProperties": {
+    "CommonResponseProperties": {
       "type": "object",
       "description": "Properties for gateway onboarding operation.",
       "properties": {
@@ -1703,11 +1769,43 @@
           "enum": [
             "Started",
             "Progress",
-            "Completed"
+            "Succeeded",
+            "Failed"
           ],
           "x-ms-enum": {
             "name": "status",
             "modelAsString": true
+          }
+        }
+      }
+    },
+    "MonitoredResourceDeboardingProperties": {
+      "type": "object",
+      "description": "Properties for deboarding of monitored resources.",
+      "properties": {
+        "computerName": {
+          "description": "computer name or fqdn of the monitored resource which is being deboarded.",
+          "type": "string"
+        },
+        "resourceId": {
+          "description": "ArmId of the monitored resource.",
+          "type": "string",
+          "format": "arm-id",
+          "x-ms-arm-id-details": {
+            "allowedResources": [
+              {
+                "type": "Microsoft.Compute/virtualMachines"
+              },
+              {
+                "type": "Microsoft.SCVMM/VirtualMachines"
+              },
+              {
+                "type": "microsoft.scvmm/vmmservers"
+              },
+              {
+                "type": "Microsoft.HybridCompute/machines"
+              }
+            ]
           }
         }
       }
