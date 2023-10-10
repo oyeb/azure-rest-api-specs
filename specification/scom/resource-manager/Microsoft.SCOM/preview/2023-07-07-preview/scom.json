@@ -1094,7 +1094,7 @@
           "type": "string",
           "readOnly": true
         },
-        "OperationMessage": {
+        "operationMessage": {
           "description": "Operation message",
           "type": "string",
           "readOnly": true
