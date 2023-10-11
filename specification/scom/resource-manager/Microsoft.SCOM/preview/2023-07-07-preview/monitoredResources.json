@@ -281,7 +281,7 @@
         },
         "onboardingStatus": {
           "description": "The status of the agent onboarding process that is being installed.",
-          "$ref": "#/definitions/OnboardingStatusProperties"
+          "$ref": "commonTypes.json#/definitions/OnboardingStatusProperties"
         },
         "managementServerEndpoint": {
           "description": "The management server endpoint to which the monitored resource is directed.",
@@ -348,28 +348,6 @@
         "provisioningState": {
           "type": "string",
           "readOnly": true
-        }
-      }
-    },
-    "OnboardingStatusProperties": {
-      "description": "The status and status message of the agent onboarding process that is being installed.",
-      "type": "object",
-      "properties": {
-        "status": {
-          "description": "The status of the onboarding process.",
-          "type": "string",
-          "enum": [
-            "Failed",
-            "Succeeded"
-          ],
-          "x-ms-enum": {
-            "name": "status",
-            "modelAsString": true
-          }
-        },
-        "message": {
-          "description": "The onboarding message for the agent.",
-          "type": "string"
         }
       }
     },
