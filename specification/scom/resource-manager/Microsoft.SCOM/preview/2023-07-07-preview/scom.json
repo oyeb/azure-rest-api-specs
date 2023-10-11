@@ -1119,7 +1119,7 @@
           "$ref": "#/definitions/AzureHybridBenefitProperties"
         },
         "provisioningState": {
-          "description": "Gets or sets the provisioning state.",
+          "description": "Gets the provisioning state.",
           "type": "string",
           "readOnly": true
         },
@@ -1218,20 +1218,18 @@
       }
     },
     "DomainUserCredentials": {
-      "description": "Get Domain user name and password from key vault",
+      "description": "Domain user name and password",
       "type": "object",
       "properties": {
-        "keyVaultUrl": {
-          "description": "Key vault url to get the domain username and password",
+        "userName": {
+          "description": "Domain user name",
           "type": "string"
         },
-        "userNameSecret": {
-          "description": "Domain user name secret ",
-          "type": "string"
-        },
-        "passwordSecret": {
-          "description": "Domain Password secret ",
-          "type": "string"
+        "password": {
+          "description": "Domain password",
+          "type": "string",
+          "format": "password",
+          "x-ms-secret": true
         }
       }
     },
@@ -1398,6 +1396,13 @@
             "create",
             "read"
           ]
+        },
+        "properties": {
+          "description": "The properties of a SCOM instance resource",
+          "domainUserCredentials": {
+            "description": "Domain user which will be used to join VMs to domain and login to VMs.",
+            "$ref": "#/definitions/DomainUserCredentials"
+          }
         },
         "tags": {
           "type": "object",

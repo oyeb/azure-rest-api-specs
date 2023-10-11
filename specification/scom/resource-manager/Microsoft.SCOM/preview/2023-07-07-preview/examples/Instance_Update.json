@@ -9,6 +9,12 @@
         "additionalProp1": "string",
         "additionalProp2": "string",
         "additionalProp3": "string"
+      },
+      "properties": {
+        "domainUserCredentials": {
+          "userName": "userName",
+          "password": "password"
+        }
       }
     }
   },
@@ -40,9 +46,8 @@
             "ouPath": "AsiaPacific"
           },
           "domainUserCredentials": {
-            "keyVaultUrl": "https://xxxxxxxx.vault.azure.net/",
-            "userNameSecret": "userNameSecret",
-            "passwordSecret": "passwordSecret"
+            "userName": "userName",
+            "password": null
           },
           "gmsaDetails": {
             "loadBalancerIP": "10.10.10.10",
@@ -91,9 +96,8 @@
             "ouPath": "AsiaPacific"
           },
           "domainUserCredentials": {
-            "keyVaultUrl": "https://xxxxxxxx.vault.azure.net/",
-            "userNameSecret": "userNameSecret",
-            "passwordSecret": "passwordSecret"
+            "userName": "userName",
+            "password": null
           },
           "gmsaDetails": {
             "loadBalancerIP": "10.10.10.10",
@@ -142,9 +146,8 @@
             "ouPath": "AsiaPacific"
           },
           "domainUserCredentials": {
-            "keyVaultUrl": "https://xxxxxxxx.vault.azure.net/",
-            "userNameSecret": "userNameSecret",
-            "passwordSecret": "passwordSecret"
+            "userName": "userName",
+            "password": null
           },
           "gmsaDetails": {
             "loadBalancerIP": "10.10.10.10",

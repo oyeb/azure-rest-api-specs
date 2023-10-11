@@ -35,9 +35,8 @@
             "ouPath": "AsiaPacific"
           },
           "domainUserCredentials": {
-            "keyVaultUrl": "https://xxxxxxxx.vault.azure.net/",
-            "userNameSecret": "userNameSecret",
-            "passwordSecret": "passwordSecret"
+            "userName": "userName",
+            "password": null
           },
           "gmsaDetails": {
             "loadBalancerIP": "10.10.10.10",
