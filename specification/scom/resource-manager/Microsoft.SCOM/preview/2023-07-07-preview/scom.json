@@ -1747,6 +1747,7 @@
           "enum": [
             "Started",
             "Progress",
+            "Completed",
             "Succeeded",
             "Failed"
           ],

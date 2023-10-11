@@ -50,7 +50,7 @@
             "Succeeded"
           ],
           "x-ms-enum": {
-            "name": "status",
+            "name": "OnboardingStatusValues",
             "modelAsString": true
           }
         },
